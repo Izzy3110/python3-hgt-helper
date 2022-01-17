@@ -81,6 +81,18 @@ class HelperClass(object):
 
     @staticmethod
     def extract_bounds(filepath):
+
+        """
+        extracts attribute-values from xml-file (filepath)
+         e.g.
+        
+        <?xml version="1.0" encoding="UTF-8"?>
+        <osm version="0.6" ...
+            <bounds minlat="38.0300000" minlon="-80.4838000" maxlat="39.0463000" maxlon="-80.4595000"/>
+                             """"""               """"""              """"""               """"""
+                              lat(min)             lon(min)            lat(max)             lon(max)
+        """
+
         root = ElementTree.parse(filepath).getroot()
         tag_attribute_names = ["minlat", "minlon", "maxlat", "maxlon"]
         attributes = {}
